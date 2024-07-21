@@ -1,3 +1,7 @@
+app
+com-sample
+docker-adot
+
 # Logs
 logs
 *.log

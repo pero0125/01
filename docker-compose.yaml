@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  adot:
+    build:
+      context: ./adot
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    networks:
+      - adot-network
+
+  app:
+    build:
+      context: ./app2
+    ports:
+      - "8080:8080"
+    networks:
+      - adot-network
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://adot:4317
+
+networks:
+  adot-network:
+    driver: bridge
