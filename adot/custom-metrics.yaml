@@ -1,8 +1,6 @@
 receivers:
   otlp:
     protocols:
-      grpc:
-        endpoint: localhost:4317
       http:
         endpoint: localhost:4318
 
@@ -15,12 +13,6 @@ exporters:
     region: 'ap-northeast-1'
   awsemf:
     region: "ap-northeast-1"
-    resource_to_telemetry_conversion:
-      enabled: true
-    metric_declarations:
-      - dimensions: [[]]
-        metric_name_selectors:
-          - ".*"
 
 service:
   pipelines:
