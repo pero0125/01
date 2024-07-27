@@ -1,17 +1,18 @@
-# ベースイメージの指定
-FROM node:18-alpine
+FROM node:18-alpine AS builder
 
-# 作業ディレクトリの作成
-WORKDIR /app
-
-COPY ./package.json .
-
-COPY ./app.ts .
-COPY ./inst.ts .
-COPY ./logger.ts .
-COPY ./customMetrics.ts .
-
+COPY package.json .
+# 依存関係のインストール
 RUN npm install
 
-# コンテナ起動時にNext.jsアプリを実行
+COPY . .
+
+# プロダクトステージ
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=builder /node_modules ./node_modules
+COPY --from=builder /package.json /package-lock.json ./
+COPY --from=builder /app.ts /inst.ts /logger.ts /customMetrics.ts ./
+
 CMD ["npm", "start"]

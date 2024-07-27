@@ -1,6 +1,7 @@
 # プロジェクト概要
 
-このプロジェクトは、AWS Distro for OpenTelemetry (ADOT) を使用してメトリクスを収集し、AWS CloudWatchに送信するためのインフラをCDKを使用して構築するサンプルです。
+AWS Distro for OpenTelemetry (ADOT) を使用してメトリクス、トレース情報を収集し、AWS CloudWatchおよびX-Rayで計装を確認する。
+インフラはCDKで構築する。
 
 ## フォルダ構成
 
@@ -59,11 +60,27 @@ npm install
 
 ### 3. CDKのデプロイ手順
 
+cdkを一度も実行していない場合、初めにcdk toolkitを作成する必要があります。
+
+```sh
+# bootstrapの実行 cdkL2,cdkL3どちらかでOK
+cd cdkL2
+cdk bootstrap
+```
+
+
 CDKスタックをデプロイするには、以下のコマンドを実行します：
 
 ```sh
 # デプロイ
-cd cdkL2 または cd cdkL3
+cd cdkL2
+cdk synth
+cdk diff
+cdk deploy
+```
+```sh
+# デプロイ
+cd cdkL3
 cdk synth
 cdk diff
 cdk deploy

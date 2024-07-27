@@ -29,7 +29,7 @@ export class CdkL2Stack extends cdk.Stack {
     });
 
     // ECRリポジトリの参照
-    const repository = ecr.Repository.fromRepositoryName(this, 'NextJsRepository', 'nextjs-app');
+    const repository = ecr.Repository.fromRepositoryName(this, 'NextJsRepository', 'nextjs-app4');
 
     // タスクロールの作成
     const taskRole = new iam.Role(this, 'EcsTaskRole', {

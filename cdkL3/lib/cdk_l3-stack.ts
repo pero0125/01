@@ -11,7 +11,7 @@ export class CdkL3Stack extends cdk.Stack {
     super(scope, id, props);
     
     // ECRリポジトリの参照
-    const repository = ecr.Repository.fromRepositoryName(this, 'NextJsRepository', 'nextjs-app');
+    const repository = ecr.Repository.fromRepositoryName(this, 'NextJsRepository', 'nextjs-app4');
 
     // TaskRoleの定義
     const taskRole = new iam.Role(this, 'EcsTaskRole', {
