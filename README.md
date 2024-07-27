@@ -99,3 +99,21 @@ cdk deploy
 ![cdkL3](diagrams/cdkL3.svg)
 
 ---
+
+### 5. 動作確認 (X-Ray)
+
+1. CDKでスタックをデプロイした後、CloudFormationのOutputsセクションに記載されているURLにアクセスします。
+    - `/rolldice`: 1-5の数字がランダムで出力されます。
+    - `/s3buckets`: S3バケットの一覧が出力されます。
+
+2. CloudWatchのX-Rayコンソールに移動し、トレースおよびトレースマップを確認します。
+    - トレース情報が正しく取得されていることを確認します。
+
+![trace](results/trace.png)
+
+### 6. 動作確認 (カスタムメトリクス)
+
+1. CloudWatchコンソールに移動し、メトリクスセクションを開きます。
+2. `my-nextjs-app-1.0.2`という名前のカスタムメトリクスが作成されていることを確認します。
+
+![metrics](results/metrics.png)
