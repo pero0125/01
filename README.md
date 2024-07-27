@@ -73,7 +73,11 @@ cdk deploy
 
 以下は、このプロジェクトで構築されるAWSリソースの概略図です：
 
+#### cdkL2構成図
 ![cdkL2](diagrams/cdkL2.svg)
+
+
+#### cdkL3構成図
 ![cdkL3](diagrams/cdkL3.svg)
 
 ---
