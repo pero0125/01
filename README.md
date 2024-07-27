@@ -1,7 +1,7 @@
 # プロジェクト概要
 
-AWS Distro for OpenTelemetry (ADOT) を使用してメトリクス、トレース情報を収集し、AWS CloudWatchおよびX-Rayで計装を確認する。
-インフラはCDKで構築する。
+AWS Distro for OpenTelemetry (ADOT) を使用してメトリクス、トレース情報を収集し、AWS CloudWatchおよびX-Rayで計装を確認します。
+インフラはCDKで構築します。
 
 ## フォルダ構成
 
@@ -78,6 +78,7 @@ cdk synth
 cdk diff
 cdk deploy
 ```
+※cloudwatch logs nameがcdkL2とcdkL3でバッティングしているため、どちらか一つのみ作成可能です。
 ```sh
 # デプロイ
 cd cdkL3
